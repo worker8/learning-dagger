@@ -1,0 +1,3 @@
+include ':dagger-android'
+include ':app'
+rootProject.name = "LearningDagger"
