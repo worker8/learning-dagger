@@ -1,3 +1,3 @@
 package com.worker8.learningdagger.model
 
-class Turtle(val name: String)
+data class Turtle(val name: String, val count: Int)

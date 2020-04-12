@@ -26,9 +26,9 @@ class ScopeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scope)
         DaggerAppComponent.builder().build().inject(this)
-        dogTextView1.text = "injected: ${snoopy1.name} (${snoopy1.identityHashCode()})"
-        dogTextView2.text = "injected: ${snoopy2.name}  (${snoopy2.identityHashCode()})"
-        turtleTextView1.text = "injected: ${turtle1.name} (${turtle1.identityHashCode()})"
-        turtleTextView2.text = "injected: ${turtle2.name} (${turtle2.identityHashCode()})"
+        dogTextView1.text = "injected: ${snoopy1}"
+        dogTextView2.text = "injected: ${snoopy2}"
+        turtleTextView1.text = "injected: ${turtle1}"
+        turtleTextView2.text = "injected: ${turtle2}"
     }
 }

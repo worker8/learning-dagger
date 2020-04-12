@@ -8,7 +8,7 @@ import com.worker8.learningdagger.di.module.PersonModule
 import dagger.Component
 
 @Component(modules = [PersonModule::class, AnimalModule::class])
-@ActivityScope
+@ApplicationScope
 interface AppComponent {
     fun inject(activity: MainActivity)
     fun inject(activity: CatActivity)

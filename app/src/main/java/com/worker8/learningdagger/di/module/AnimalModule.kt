@@ -1,6 +1,8 @@
 package com.worker8.learningdagger.di.module
 
-import com.worker8.learningdagger.di.ActivityScope
+import com.worker8.learningdagger.MainApplication.Companion.dogCount
+import com.worker8.learningdagger.MainApplication.Companion.turtleCount
+import com.worker8.learningdagger.di.ApplicationScope
 import com.worker8.learningdagger.model.Cat
 import com.worker8.learningdagger.model.Dog
 import com.worker8.learningdagger.model.Turtle
@@ -20,9 +22,9 @@ class AnimalModule {
     fun provideHelloKitty(): Cat = Cat("Hello Kitty")
 
     @Provides
-    fun provideSnoopy(): Dog = Dog("Snoopy")
+    fun provideSnoopy(): Dog = Dog("Snoopy", dogCount++)
 
     @Provides
-    @ActivityScope
-    fun provideTurtle(): Turtle = Turtle("Master Oogway")
+    @ApplicationScope
+    fun provideTurtle(): Turtle = Turtle("Master Oogway", turtleCount++)
 }

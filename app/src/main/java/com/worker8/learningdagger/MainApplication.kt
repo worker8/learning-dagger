@@ -6,4 +6,9 @@ class MainApplication : Application() {
     override fun onCreate() {
         super.onCreate()
     }
+
+    companion object {
+        var dogCount = 0
+        var turtleCount = 0
+    }
 }

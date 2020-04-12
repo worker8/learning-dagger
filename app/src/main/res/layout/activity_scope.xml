@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:fontFamily="serif"
-        android:text="The Following 2 dogs are SCOPED, so it will ONLY create 1 instance of dog."
+        android:text="The Following 2 turtles are SCOPED, so it will ONLY create 1 instance of turtle."
         android:textStyle="bold" />
 
     <TextView

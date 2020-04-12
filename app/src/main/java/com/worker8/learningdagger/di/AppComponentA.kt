@@ -4,7 +4,7 @@ import com.worker8.learningdagger.di.module.SubModule
 import dagger.Component
 
 @Component(modules = [SubModule::class])
-@ActivityScope
+@ApplicationScope
 interface AppComponentA {
     fun getSubComponentBuilder(): SubComponentA.Builder
 }
