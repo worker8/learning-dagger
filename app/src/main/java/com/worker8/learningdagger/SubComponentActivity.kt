@@ -11,8 +11,6 @@ import com.worker8.learningdagger.model.Coffee
 import javax.inject.Inject
 
 class SubComponentActivity : AppCompatActivity() {
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scope)

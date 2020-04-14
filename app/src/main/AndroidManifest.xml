@@ -10,24 +10,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-
-        </activity>
-        <activity android:name=".CatActivity">
-
-        </activity>
-        <activity android:name=".ScopeActivity">
+        <activity android:name=".BasicActivity" />
+        <activity android:name=".CatActivity" />
+        <activity android:name=".HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SubComponentActivity">
 
-        </activity>
-        <activity android:name=".ConstructorInjectionActivity">
-
-        </activity>
+        <activity android:name=".ScopeActivity" />
+        <activity android:name=".SubComponentActivity" />
+        <activity android:name=".ConstructorInjectionActivity" />
 
 
     </application>
