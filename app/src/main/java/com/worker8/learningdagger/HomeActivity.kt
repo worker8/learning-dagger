@@ -1,5 +1,6 @@
 package com.worker8.learningdagger
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,15 +9,24 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_home.view.*
 import kotlinx.android.synthetic.main.row_home.view.*
 
 class HomeActivity : AppCompatActivity() {
+    val homeAdapter = HomeAdapter()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-//        homeList.adapter
-
+        homeList.adapter = homeAdapter
+        homeAdapter.submitList(listOf(
+            HomeRowType(
+                "Basic Usage"
+            ) { startActivity(Intent(this@HomeActivity, BasicActivity::class.java)) },
+            HomeRowType(
+                "@Named usage"
+            ) { startActivity(Intent(this@HomeActivity, CatActivity::class.java)) }
+        ))
     }
 }
 
@@ -41,7 +51,7 @@ class HomeAdapter : ListAdapter<HomeRowType, RecyclerView.ViewHolder>(comparator
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val homeRowData = getItem(position)
-
+        (holder as HomeViewHolder).bind(homeRowData)
     }
 }
 
