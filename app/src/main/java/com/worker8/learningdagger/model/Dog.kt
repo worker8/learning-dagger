@@ -1,3 +1,3 @@
 package com.worker8.learningdagger.model
 
-class Dog(val name: String)
+data class Dog(val name: String, val count:Int)

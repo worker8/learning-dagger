@@ -6,18 +6,18 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".ScopeActivity">
+    tools:context=".subcomponent.SubComponentActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:fontFamily="serif"
-        android:text="The Following 2 dogs are NOT scoped, so it creates a new instance very time"
+        android:text="The Following 2 lattes are the same within same Fragment"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/dogTextView1"
+        android:id="@+id/latte1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -26,7 +26,15 @@
         tools:text="injected: ???" />
 
     <TextView
-        android:id="@+id/dogTextView2"
+        android:id="@+id/latte2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="serif-monospace"
+        android:textStyle="bold"
+        tools:text="injected: ???" />
+    <TextView
+        android:id="@+id/fragmentDog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -34,36 +42,4 @@
         android:textStyle="bold"
         tools:text="injected: ???" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="#cccccc" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="serif"
-        android:text="The Following 2 turtles are SCOPED, so it will ONLY create 1 instance of turtle."
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/turtleTextView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="serif-monospace"
-        android:textStyle="bold"
-        tools:text="injected: ???" />
-
-    <TextView
-        android:id="@+id/turtleTextView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="serif-monospace"
-        android:textStyle="bold"
-        tools:text="injected: ???" />
 </LinearLayout>

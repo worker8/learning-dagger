@@ -1,14 +1,13 @@
-package com.worker8.learningdagger.di.module
+package com.worker8.learningdagger.subcomponent.di
 
 import android.content.Context
-import com.worker8.learningdagger.di.PerSubComponentScope
 import com.worker8.learningdagger.model.Coffee
 import dagger.Module
 import dagger.Provides
 
 @Module
-class BeverageModule {
+class ChildModule {
     @Provides
-    @PerSubComponentScope
+    @ParentScope
     fun provideLatte(context: Context): Coffee = Coffee("Latte", context)
 }
