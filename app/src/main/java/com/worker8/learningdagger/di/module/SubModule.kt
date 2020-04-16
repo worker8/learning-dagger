@@ -1,7 +1,14 @@
 package com.worker8.learningdagger.di.module
 
-import com.worker8.learningdagger.di.SubComponentA
+import com.worker8.learningdagger.MainApplication
+import com.worker8.learningdagger.di.ApplicationScope
+import com.worker8.learningdagger.model.Dog
 import dagger.Module
+import dagger.Provides
 
-@Module(subcomponents = [SubComponentA::class])
-class SubModule
+@Module
+class SubModule {
+    @Provides
+    @ApplicationScope
+    fun provideDog(): Dog = Dog("Snoopy", MainApplication.dogCount++)
+}

@@ -6,5 +6,5 @@ import dagger.Component
 @Component(modules = [SubModule::class])
 @ApplicationScope
 interface AppComponentA {
-    fun getSubComponentBuilder(): SubComponentA.Builder
+    fun getSubComponent(): SubComponentA.Builder
 }

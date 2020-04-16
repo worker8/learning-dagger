@@ -16,6 +16,6 @@ interface SubComponentA {
         fun build(): SubComponentA
 
         @BindsInstance
-        fun applicationBind(context: Context): Builder
+        fun bindContext(context: Context): Builder
     }
 }

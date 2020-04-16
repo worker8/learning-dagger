@@ -10,37 +10,46 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.activity_home.view.*
 import kotlinx.android.synthetic.main.row_home.view.*
 
 class HomeActivity : AppCompatActivity() {
     val homeAdapter = HomeAdapter()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         homeList.adapter = homeAdapter
-        homeAdapter.submitList(listOf(
-            HomeRowType(
-                "Basic Usage"
-            ) { startActivity(Intent(this@HomeActivity, BasicActivity::class.java)) },
-            HomeRowType(
-                "@Named usage"
-            ) { startActivity(Intent(this@HomeActivity, CatActivity::class.java)) }
-        ))
+        homeAdapter.submitList(
+            listOf(
+                HomeRow("Basic Usage", getIntent(BasicActivity::class.java)),
+                HomeRow("@Named usage", getIntent(CatActivity::class.java)),
+                HomeRow("@Scope usage", getIntent(ScopeActivity::class.java)),
+                HomeRow(
+                    "@SubComponent usage", getIntent(SubComponentActivity::class.java)
+                ),
+                HomeRow(
+                    "Constructor Injection Usage",
+                    getIntent(ConstructorInjectionActivity::class.java)
+                )
+            )
+        )
     }
+
+    private fun getIntent(clazz: Class<out Any>) =
+        { -> startActivity(Intent(this@HomeActivity, clazz)) }
 }
 
-class HomeAdapter : ListAdapter<HomeRowType, RecyclerView.ViewHolder>(comparator) {
+class HomeAdapter : ListAdapter<HomeRow, RecyclerView.ViewHolder>(comparator) {
     init {
         setHasStableIds(true)
     }
 
     companion object {
-        val comparator = object : DiffUtil.ItemCallback<HomeRowType>() {
-            override fun areItemsTheSame(oldItem: HomeRowType, newItem: HomeRowType) =
+        val comparator = object : DiffUtil.ItemCallback<HomeRow>() {
+            override fun areItemsTheSame(oldItem: HomeRow, newItem: HomeRow) =
                 oldItem == newItem
 
-            override fun areContentsTheSame(oldItem: HomeRowType, newItem: HomeRowType) =
+            override fun areContentsTheSame(oldItem: HomeRow, newItem: HomeRow) =
                 oldItem == newItem
         }
     }
@@ -56,7 +65,7 @@ class HomeAdapter : ListAdapter<HomeRowType, RecyclerView.ViewHolder>(comparator
 }
 
 class HomeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    fun bind(homeRowData: HomeRowType) {
+    fun bind(homeRowData: HomeRow) {
         itemView.apply {
             rowTitle.text = homeRowData.title
             homeRowContainer.setOnClickListener {
@@ -73,7 +82,7 @@ class HomeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     }
 }
 
-data class HomeRowType(
+data class HomeRow(
     val title: String,
     val onClick: () -> Unit
 )
