@@ -7,7 +7,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class SubModule {
+class ParentModule {
     @Provides
     @ApplicationScope
     fun provideDog(): Dog = Dog("Snoopy", MainApplication.dogCount++)

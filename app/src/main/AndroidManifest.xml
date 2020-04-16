@@ -20,8 +20,8 @@
         </activity>
 
         <activity android:name=".ScopeActivity" />
-        <activity android:name=".SubComponentActivity" />
-        <activity android:name=".ConstructorInjectionActivity" />
+        <activity android:name=".subcomponent.SubComponentActivity" />
+        <activity android:name=".constructorInjection.ConstructorInjectionActivity" />
 
 
     </application>

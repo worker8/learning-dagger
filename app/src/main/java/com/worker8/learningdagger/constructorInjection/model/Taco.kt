@@ -1,4 +1,4 @@
-package com.worker8.learningdagger.model
+package com.worker8.learningdagger.constructorInjection.model
 
 import com.worker8.learningdagger.di.ApplicationScope
 import javax.inject.Inject
