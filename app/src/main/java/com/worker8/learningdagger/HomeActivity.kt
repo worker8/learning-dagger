@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.worker8.learningdagger.constructorInjection.ConstructorInjectionActivity
+import com.worker8.learningdagger.multibinding.MultiBindingActivity
 import com.worker8.learningdagger.subcomponent.SubComponentActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.row_home.view.*
@@ -32,6 +33,10 @@ class HomeActivity : AppCompatActivity() {
                 HomeRow(
                     "Constructor Injection Usage",
                     getIntent(ConstructorInjectionActivity::class.java)
+                ),
+                HomeRow(
+                    "@IntoMap Usage",
+                    getIntent(MultiBindingActivity::class.java)
                 )
             )
         )
