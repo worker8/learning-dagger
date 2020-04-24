@@ -16,11 +16,11 @@ class MultiBindingActivity : AppCompatActivity() {
     @Inject
     lateinit var stringMap: Map<String, String>
 
-//    @Inject
-//    lateinit var intMap: Map<Integer, String>
+    @Inject
+    lateinit var intMap: Map<Int, String>
 
 //    @Inject
-//    lateinit var classMap: Map<KClass<Cat>, String>
+//    lateinit var bigDecimalMap: Map<KClass<BigDecimal>, String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +31,8 @@ class MultiBindingActivity : AppCompatActivity() {
         multiBindingTV.text = set.toString()
         multiBindingConsoleTV.text =
             "${multiBindingConsoleTV.text}\nstringMap['first'] => ${stringMap.get("first")}\n"
+        multiBindingConsoleTV.text =
+            "${multiBindingConsoleTV.text}\nintMap[5] => ${intMap.get(5)}\n"
 //        multiBindingConsoleTV.text += "classMap[CatKey()] => ${classMap.get(Cat::class)}\n"
     }
 }

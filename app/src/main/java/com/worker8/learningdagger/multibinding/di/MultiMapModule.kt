@@ -1,14 +1,20 @@
 package com.worker8.learningdagger.multibinding.di
 
+import dagger.MapKey
 import dagger.Module
 import dagger.Provides
+import dagger.multibindings.IntKey
 import dagger.multibindings.IntoMap
 import dagger.multibindings.IntoSet
 import dagger.multibindings.StringKey
+import kotlin.reflect.KClass
 
+@MapKey
+@kotlin.annotation.Retention(AnnotationRetention.RUNTIME)
+annotation class MyNumberClassKey(val value: KClass<out Number>)
 
 @Module
-class MultiMapModule {
+object MultiMapModule {
     @Provides
     @IntoSet
     fun provideOneString(): String {
@@ -20,10 +26,17 @@ class MultiMapModule {
     @StringKey("first")
     fun provideOneDog() = "Doggie"
 
+    @Provides
+    @IntoMap
+    @IntKey(5)
+    @JvmStatic
+    fun provideNumberFive() = "five"
+
+//    @JvmStatic
 //    @Provides
 //    @IntoMap
-//    @IntegerKey(Integer::class)
-//    fun provideNumberFive() = 5
+//    @MyNumberClassKey(BigDecimal::class)
+//    fun provideBigDecimalValue() = "value for BigDecimal"
 
 //    @Provides
 //    @IntoMap
