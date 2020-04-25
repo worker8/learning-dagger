@@ -1,6 +1,8 @@
 package com.worker8.learningdagger.multibinding
 
 import android.os.Bundle
+import android.util.Log
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.worker8.learningdagger.R
 import com.worker8.learningdagger.multibinding.di.DaggerMultiMapComponent
@@ -19,20 +21,27 @@ class MultiBindingActivity : AppCompatActivity() {
     @Inject
     lateinit var intMap: Map<Int, String>
 
-//    @Inject
-//    lateinit var bigDecimalMap: Map<KClass<BigDecimal>, String>
+    @Inject
+    lateinit var wolfMap: Map<Class<out AbstractWolf>, @JvmSuppressWildcards AbstractWolf>
 
+    val model by viewModels<MultiBindingViewModel>()
+
+    //    java.util.Map<kotlin.reflect.KClass<com.worker8.learningdagger.model.Cat>,? extends javax.inject.Provider<java.lang.String>> cannot be provided without an @Provides-annotated method.
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         DaggerMultiMapComponent.builder().build().inject(this)
         setContentView(R.layout.activity_into_map)
         val set = setProvider.get()
+        multiBindingTV.text = "Output:"
 
-        multiBindingTV.text = set.toString()
+        multiBindingConsoleTV.text =
+            "${multiBindingConsoleTV.text}\nset => ${set}\n"
         multiBindingConsoleTV.text =
             "${multiBindingConsoleTV.text}\nstringMap['first'] => ${stringMap.get("first")}\n"
         multiBindingConsoleTV.text =
             "${multiBindingConsoleTV.text}\nintMap[5] => ${intMap.get(5)}\n"
+
+        Log.d("ddw", "model: ${model}")
 //        multiBindingConsoleTV.text += "classMap[CatKey()] => ${classMap.get(Cat::class)}\n"
     }
 }
