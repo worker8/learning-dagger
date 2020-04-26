@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:fontFamily="serif"
-        android:text="The Following 2 lattes are the same within same Fragment"
+        android:text="Lattes within a fragment will be the same"
         android:textStyle="bold" />
 
     <TextView
@@ -33,6 +32,7 @@
         android:fontFamily="serif-monospace"
         android:textStyle="bold"
         tools:text="injected: ???" />
+
     <TextView
         android:id="@+id/fragmentDog"
         android:layout_width="wrap_content"

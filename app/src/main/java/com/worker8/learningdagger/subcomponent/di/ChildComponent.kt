@@ -6,7 +6,7 @@ import dagger.BindsInstance
 import dagger.Subcomponent
 
 @Subcomponent(modules = [ChildModule::class])
-@ParentScope
+@ChildScope
 interface ChildComponent {
     fun inject(childFragment: ChildFragment)
 

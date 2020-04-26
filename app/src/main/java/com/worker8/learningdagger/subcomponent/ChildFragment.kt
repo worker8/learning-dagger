@@ -48,4 +48,15 @@ class ChildFragment() : Fragment() {
         this.mainComponent = mainComponent
         this.childComponentBuilder = childComponentBuilder
     }
+
+    companion object {
+        val FragmentName = "FragmentName"
+        fun newInstance(name: String) =
+            ChildFragment().apply {
+                arguments = Bundle().apply {
+                    putString(FragmentName, name)
+                }
+            }
+
+    }
 }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    tools:context=".multibinding.MultiBindingActivity">
+    tools:context=".multibinding.MultiBindingViewModelActivity">
 
     <TextView
         android:id="@+id/multiBindingTV"

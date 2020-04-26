@@ -7,19 +7,19 @@ import com.worker8.learningdagger.subcomponent.di.DaggerParentComponent
 
 class SubComponentActivity : AppCompatActivity() {
 
-    val fragmentA = ChildFragment()
-    val fragmentB = ChildFragment()
+    val childFragmentA = ChildFragment()
+    val childFragmentB = ChildFragment()
     val parentComponent = DaggerParentComponent.builder().build()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_subcomponent)
-        fragmentA.setupSubComponentA(parentComponent, parentComponent.getSubComponent())
-        fragmentB.setupSubComponentA(parentComponent, parentComponent.getSubComponent())
+        childFragmentA.setupSubComponentA(parentComponent, parentComponent.getSubComponent())
+        childFragmentB.setupSubComponentA(parentComponent, parentComponent.getSubComponent())
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.scopeTop, fragmentA, "fragmentA").commit()
+                .replace(R.id.scopeTop, childFragmentA, "fragmentA").commit()
         supportFragmentManager.beginTransaction()
-            .replace(R.id.scopeBottom, fragmentB, "fragmentB").commit()
+                .replace(R.id.scopeBottom, childFragmentB, "fragmentB").commit()
     }
 }

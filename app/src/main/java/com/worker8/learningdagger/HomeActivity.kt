@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.worker8.learningdagger.constructorInjection.ConstructorInjectionActivity
 import com.worker8.learningdagger.multibinding.MultiBindingActivity
+import com.worker8.learningdagger.multibinding.MultiBindingViewModelActivity
 import com.worker8.learningdagger.subcomponent.SubComponentActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.row_home.view.*
@@ -37,6 +38,10 @@ class HomeActivity : AppCompatActivity() {
                 HomeRow(
                     "@IntoMap Usage",
                     getIntent(MultiBindingActivity::class.java)
+                ),
+                HomeRow(
+                    "@IntoMap ViewModel Usage",
+                    getIntent(MultiBindingViewModelActivity::class.java)
                 )
             )
         )

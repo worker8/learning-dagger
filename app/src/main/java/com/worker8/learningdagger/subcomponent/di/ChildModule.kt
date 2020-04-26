@@ -8,6 +8,6 @@ import dagger.Provides
 @Module
 class ChildModule {
     @Provides
-    @ParentScope
+    @ChildScope
     fun provideLatte(context: Context): Coffee = Coffee("Latte", context)
 }
