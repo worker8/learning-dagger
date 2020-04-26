@@ -7,7 +7,7 @@ import javax.inject.Provider
 import javax.inject.Singleton
 
 @Singleton
-class DaggerViewModelFactory @Inject constructor(
+class RabbitViewModelFactory @Inject constructor(
     private val creators: Map<Class<out ViewModel>, @JvmSuppressWildcards Provider<ViewModel>>
 ) : ViewModelProvider.Factory {
 
