@@ -26,6 +26,7 @@ class RabbitActivity : AppCompatActivity(),
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         DaggerViewModelComponent.builder()
             .bindContext(this)
             .build()
@@ -39,7 +40,6 @@ class RabbitActivity : AppCompatActivity(),
                     "${multiBindingConsoleTV.text}\n ${it}\n"
             }
         })
-
         viewModel.onCreate()
     }
 

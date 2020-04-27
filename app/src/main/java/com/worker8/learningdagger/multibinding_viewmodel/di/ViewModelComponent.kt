@@ -10,7 +10,9 @@ import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [RabbitRepositoryModule::class, ViewModule::class, WolfModule::class, DispatcherModule::class])
+@Component(
+    modules = [RabbitRepositoryModule::class, ViewModule::class, WolfModule::class, DispatcherModule::class]
+)
 interface ViewModelComponent {
     fun inject(activity: RabbitActivity)
     fun inject(activity: JackRabbitActivity)

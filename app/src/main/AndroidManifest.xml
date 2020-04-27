@@ -24,6 +24,7 @@
         <activity android:name=".multibinding.RabbitActivity" />
         <activity android:name=".multibinding.JackRabbitActivity" />
         <activity android:name=".subcomponent.SubComponentActivity" />
+        <activity android:name=".componentBuilder.ComponentBuilderActivity" />
         <activity android:name=".constructorInjection.ConstructorInjectionActivity" />
 
     </application>

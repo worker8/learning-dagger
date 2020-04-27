@@ -1,18 +1,24 @@
 package com.worker8.learningdagger
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.worker8.learningdagger.multibinding.RabbitViewModel
+import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.newSingleThreadContext
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runBlockingTest
 import kotlinx.coroutines.test.setMain
 import org.junit.After
-import org.junit.Assert.assertEquals
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 import javax.inject.Inject
 
 class RabbitViewModelTest {
+    @Rule
+    @JvmField
+    val instantExecutorRule = InstantTaskExecutorRule()
+
     private val mainThreadSurrogate = newSingleThreadContext("Test Main UI thread")
     @Inject
     lateinit var viewModelUnderTest: RabbitViewModel
@@ -40,14 +46,7 @@ class RabbitViewModelTest {
         runBlockingTest {
             viewModelUnderTest.coroutineScope = this
             viewModelUnderTest.onCreate()
-            assertEquals(1, viewModelUnderTest.count)
-//            Thread.sleep(1000)
-            assertEquals(
-                "Test UI thread",
-                viewModelUnderTest.threadName1 + ":" + viewModelUnderTest.threadName2
-            )
-//            assertEquals("Test UI thread", viewModelUnderTest.threadName2)
-//            assertEquals(true, viewModelUnderTest.threadName1.contains("Test UI thread"))
+            assertEquals(2, viewModelUnderTest.listLiveData.getOrAwaitValue().count())
         }
     }
 }
