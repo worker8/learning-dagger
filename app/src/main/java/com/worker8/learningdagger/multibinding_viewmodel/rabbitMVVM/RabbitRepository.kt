@@ -1,11 +1,12 @@
-package com.worker8.learningdagger.multibinding_viewmodel.di
+package com.worker8.learningdagger.multibinding_viewmodel.rabbitMVVM
 
 import android.content.Context
+import android.util.Log
 import kotlinx.coroutines.delay
-import javax.inject.Inject
 
-class RabbitRepository @Inject constructor(val context: Context) : RabbitRepositoryInterface {
-    suspend fun fetchNames(): List<String> {
+class RabbitRepository constructor(val context: Context) : RabbitRepositoryInterface {
+    override suspend fun fetchNames(): List<String> {
+        Log.d("ddw", "fetchNames in Thread: ${Thread.currentThread().name}")
         delay(1000)
         return listOf(
             "Aaren",

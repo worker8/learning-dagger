@@ -1,4 +1,4 @@
-package com.worker8.learningdagger.multibinding_viewmodel.di
+package com.worker8.learningdagger.multibinding_viewmodel.commonMVVM
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -7,7 +7,7 @@ import javax.inject.Provider
 import javax.inject.Singleton
 
 @Singleton
-class RabbitViewModelFactory @Inject constructor(
+class ViewModelFactory @Inject constructor(
     private val creators: Map<Class<out ViewModel>, @JvmSuppressWildcards Provider<ViewModel>>
 ) : ViewModelProvider.Factory {
 

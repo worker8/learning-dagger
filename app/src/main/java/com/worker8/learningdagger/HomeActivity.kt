@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.worker8.learningdagger.constructorInjection.ConstructorInjectionActivity
+import com.worker8.learningdagger.multibinding.JackRabbitActivity
 import com.worker8.learningdagger.multibinding.MultiBindingActivity
 import com.worker8.learningdagger.multibinding.RabbitActivity
 import com.worker8.learningdagger.subcomponent.SubComponentActivity
@@ -42,6 +43,10 @@ class HomeActivity : AppCompatActivity() {
                 HomeRow(
                     "@IntoMap ViewModel Usage",
                     getIntent(RabbitActivity::class.java)
+                ),
+                HomeRow(
+                    "@IntoMap ViewModel Usage (Another activity)",
+                    getIntent(JackRabbitActivity::class.java)
                 )
             )
         )

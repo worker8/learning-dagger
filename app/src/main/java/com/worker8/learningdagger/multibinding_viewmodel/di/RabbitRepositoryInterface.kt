@@ -1,3 +1,0 @@
-package com.worker8.learningdagger.multibinding_viewmodel.di
-
-interface RabbitRepositoryInterface
